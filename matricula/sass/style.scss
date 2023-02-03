@@ -24,7 +24,7 @@ $measure: 1rem;
 
 // Fonts
 @mixin font-a {
-    font-family: 'Calibri', Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 180px;
     font-weight: 900;
     line-height: 1.1;
@@ -416,7 +416,7 @@ $measure: 1rem;
             transition: all ease-in-out .3s;
             @media (max-width: 960px){
                 margin-bottom: $measure*2;
-                padding: $measure*2 $measure;
+                padding: 0px;
             }
             &__title{
                 position: relative;
@@ -793,6 +793,10 @@ $measure: 1rem;
         position: absolute;
         bottom: -5rem;
         right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
         text-align: right;
         z-index: 2;
         @media (max-width: 960px){
