@@ -224,21 +224,21 @@ $measure: 1rem;
     padding: $measure*1.5 $measure*4;
     z-index: 300;
     @media (max-width: 960px){
-        padding: $measure*1.5 0px;
+        padding: $measure 0px;
         margin: 0px;
-        height: 78px;
     }
     &__logo{
         max-height: 60px;
         @media (max-width: 960px){
-            max-height: 40px;
+            max-height: 50px;
         }
         &__link{
             display: block;
+            width: fit-content;
             &__media{
                 max-height: 60px;
                 @media (max-width: 960px){
-                    max-height: 30px;
+                    max-height: 50px;
                 }
             }
         }
@@ -420,7 +420,7 @@ $measure: 1rem;
         padding: 92px 0 120px 0;
         z-index: 3;
         &__title{
-            @include font-d;
+            @include font-c;
             text-align: center;
             margin-bottom: $measure*6;
             color: $color-d;
@@ -430,13 +430,8 @@ $measure: 1rem;
         }
         &__card{
             position: relative;
-<<<<<<< HEAD
             padding: $measure*5 $measure;
             transition: all ease-in-out .3s;
-=======
-            background-color: $color-d;
-            padding: $measure*10 $measure;
->>>>>>> parent of 2bb011e (landing armeria)
             @media (max-width: 960px){
                 margin-bottom: $measure*2;
                 padding: $measure*2 $measure;
@@ -457,7 +452,6 @@ $measure: 1rem;
         }
     }
 }
-<<<<<<< HEAD
 @keyframes flipdown {
     0% {
       opacity: 0;
@@ -480,7 +474,7 @@ $measure: 1rem;
       transform-origin: top center;
       transform: rotateX(0deg);
     }
-  }
+}
 .b--accordion-a{
     list-style: none;
     perspective: 900;
@@ -494,7 +488,7 @@ $measure: 1rem;
         padding: $measure*3;
         animation: flipdown 0.5s ease both;
         @media (max-width: 960px){
-            padding: $measure*2;
+            padding: 0px;
         }
         &:nth-of-type(1){
             animation-delay: 0.5s;
@@ -506,14 +500,44 @@ $measure: 1rem;
             padding-bottom: 0;
         }
         &__title{
-            @include font-d();
-            font-weight: 400;
-            color: $color-d;
-            display: block;
-            margin: 0;
-            cursor: pointer;
-            user-select: none;
-            transition: all ease-in-out .3s;
+            position: relative;
+            width: 100%;
+            &__text{
+                @include font-d();
+                font-weight: 400;
+                color: $color-d;
+                display: block;
+                width: fit-content;
+                padding: 0 10px;
+                margin: 0;
+                margin-bottom: 7px;
+                cursor: pointer;
+                user-select: none;
+                transition: all ease-in-out .3s;
+                background-color: $color-b;
+                &--bold{
+                    font-weight: 700;
+                    @include font-c();
+                }
+            }
+            &::after{
+                content:'';
+                position: absolute;
+                top: 0; right: 0;
+                border-left: 35px solid transparent;
+                border-top: 35px solid $color-d;
+                border-right: 35px solid $color-d;
+                border-bottom: 35px solid transparent;
+                opacity: 0;
+                transition: all ease-in-out .3s;
+                @media (max-width: 960px){
+                    border-left: 20px solid transparent;
+                    border-top: 20px solid $color-d;
+                    border-right: 20px solid $color-d;
+                    border-bottom: 20px solid transparent;
+                }
+            }
+            
         }
         &__content{
             @include font-f();
@@ -541,16 +565,32 @@ $measure: 1rem;
             opacity: 0;
             transform: translate(0, 50%);
         }
+        input[type=checkbox]:checked ~ .b--accordion-a__list-item__title {
+            &__text{
+                background-color: $color-b;
+                margin-bottom: 0px;
+                padding: 0 10px;
+            }
+            &::after{
+                opacity: 0;
+                transition: all ease-in-out .3s;
+            }
+        }
         &:hover &{
             &__title{
-                color: $color-b;
-                transition: all ease-in-out .3s;
+                &__text{
+                    background-color: rgba($color-b, 0);
+                    margin-bottom: 0px;
+                    padding: 0px;
+                }
+                &::after{
+                    opacity: 1;
+                    transition: all ease-in-out .3s;
+                }
             }
         }
     }
 }
-=======
->>>>>>> parent of 2bb011e (landing armeria)
 
 // card-a
 .b--card-a{
@@ -656,11 +696,16 @@ $measure: 1rem;
 // card-b
 .b--card-b{
     position: relative;
+    display: flex;
+
     &__bg-items{
         position: relative;
         margin: 0 auto;
         width: 70%;
         opacity: 1;
+        @media (max-width: 960px){
+            width: 90%;
+        }
         &__media{
            position: relative;
            z-index: 0;
@@ -672,14 +717,17 @@ $measure: 1rem;
         }
     }
     &__ft-items{
-        position: absolute;
-        bottom: 10%;
-        width: 100%;
+        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
         z-index: 3;
+        @media (max-width: 960px){
+            position: absolute;
+            bottom: 10%;
+            width: 100%;
+        }
         &__title{
             margin-bottom: 30px;
             &__text{
@@ -708,10 +756,15 @@ $measure: 1rem;
         right: 0;
         text-align: right;
         z-index: 2;
+        @media (max-width: 960px){
+            bottom: 1rem;
+        }
         &__title{
             @include font-c();
             font-weight: 400;
             color: $color-d;
+            display: inline-block;
+            text-align: right;
             background-color: $color-b;
             padding: 0 10px;
             max-width: fit-content;
@@ -837,30 +890,56 @@ $measure: 1rem;
         padding: 4% 0px;
     }
     &__main{
-        &__media{
-
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        @media (max-width: 960px){
+            margin-bottom: $measure*3;
+            display: block;
+            height: auto;
+        }
+        &__link{
+            display: block;
+            &__media{
+                max-height: 90px;
+                
+            }
         }
     }
     &__content{
         text-align: right;
         margin-bottom: $measure*2.5;
+        @media (max-width: 960px){
+            text-align: left;
+        }
         &__text{
             @include font-f();
             color: $color-d;
-            
+            display: block;
+            text-decoration: none!important;
+            &:hover{
+                color: $color-a;
+            }
         }
     }
     &__wrapper{
         display: flex;
         justify-content: flex-end;
+        @media (max-width: 960px){
+            justify-content: flex-start;
+        }
         &__media{
             margin-left: $measure*1.5;
+            @media (max-width: 960px){
+                margin-left: 0px;
+                margin-right: $measure*1.5;
+            }
             &__link{
                 display: block;
                 &__media{
-                    max-height: 20px;
+                    max-height: 25px;
                     @media (max-width: 960px){
-                        max-height: 10px;
+                        max-height: 20px;
                     }
                 }
             }

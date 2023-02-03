@@ -293,9 +293,8 @@ img {
 }
 @media (max-width: 960px) {
   .b--header-a {
-    padding: 1.5rem 0px;
+    padding: 1rem 0px;
     margin: 0px;
-    height: 78px;
   }
 }
 .b--header-a__logo {
@@ -303,18 +302,21 @@ img {
 }
 @media (max-width: 960px) {
   .b--header-a__logo {
-    max-height: 40px;
+    max-height: 50px;
   }
 }
 .b--header-a__logo__link {
   display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .b--header-a__logo__link__media {
   max-height: 60px;
 }
 @media (max-width: 960px) {
   .b--header-a__logo__link__media {
-    max-height: 30px;
+    max-height: 50px;
   }
 }
 .b--header-a__content {
@@ -572,16 +574,16 @@ img {
 }
 .b--cta-a__ft-items__title {
   font-family: "Asap", Arial, Helvetica, sans-serif;
-  font-size: 2.8rem;
-  font-weight: 900;
-  line-height: 1.3;
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.1;
   text-align: center;
   margin-bottom: 6rem;
   color: #fff;
 }
 @media (max-width: 960px) {
   .b--cta-a__ft-items__title {
-    font-size: 18px;
+    font-size: 28px;
   }
 }
 @media (max-width: 960px) {
@@ -591,13 +593,8 @@ img {
 }
 .b--cta-a__ft-items__card {
   position: relative;
-<<<<<<< HEAD
   padding: 5rem 1rem;
   transition: all ease-in-out 0.3s;
-=======
-  background-color: #fff;
-  padding: 10rem 1rem;
->>>>>>> parent of 2bb011e (landing armeria)
 }
 @media (max-width: 960px) {
   .b--cta-a__ft-items__card {
@@ -629,7 +626,6 @@ img {
   }
 }
 
-<<<<<<< HEAD
 @-webkit-keyframes flipdown {
   0% {
     opacity: 0;
@@ -694,7 +690,7 @@ img {
 }
 @media (max-width: 960px) {
   .b--accordion-a__list-item {
-    padding: 2rem;
+    padding: 0px;
   }
 }
 .b--accordion-a__list-item:nth-of-type(1) {
@@ -709,6 +705,10 @@ img {
   padding-bottom: 0;
 }
 .b--accordion-a__list-item__title {
+  position: relative;
+  width: 100%;
+}
+.b--accordion-a__list-item__title__text {
   font-family: "Asap", Arial, Helvetica, sans-serif;
   font-size: 2.8rem;
   font-weight: 900;
@@ -716,17 +716,55 @@ img {
   font-weight: 400;
   color: #fff;
   display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0 10px;
   margin: 0;
+  margin-bottom: 7px;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   transition: all ease-in-out 0.3s;
+  background-color: #3c3c3b;
 }
 @media (max-width: 960px) {
-  .b--accordion-a__list-item__title {
+  .b--accordion-a__list-item__title__text {
     font-size: 18px;
+  }
+}
+.b--accordion-a__list-item__title__text--bold {
+  font-weight: 700;
+  font-family: "Asap", Arial, Helvetica, sans-serif;
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+@media (max-width: 960px) {
+  .b--accordion-a__list-item__title__text--bold {
+    font-size: 28px;
+  }
+}
+.b--accordion-a__list-item__title::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-left: 35px solid transparent;
+  border-top: 35px solid #fff;
+  border-right: 35px solid #fff;
+  border-bottom: 35px solid transparent;
+  opacity: 0;
+  transition: all ease-in-out 0.3s;
+}
+@media (max-width: 960px) {
+  .b--accordion-a__list-item__title::after {
+    border-left: 20px solid transparent;
+    border-top: 20px solid #fff;
+    border-right: 20px solid #fff;
+    border-bottom: 20px solid transparent;
   }
 }
 .b--accordion-a__list-item__content {
@@ -763,13 +801,25 @@ img {
   opacity: 0;
   transform: translate(0, 50%);
 }
-.b--accordion-a__list-item:hover .b--accordion-a__list-item__title {
-  color: #3c3c3b;
+.b--accordion-a__list-item input[type=checkbox]:checked ~ .b--accordion-a__list-item__title__text {
+  background-color: #3c3c3b;
+  margin-bottom: 0px;
+  padding: 0 10px;
+}
+.b--accordion-a__list-item input[type=checkbox]:checked ~ .b--accordion-a__list-item__title::after {
+  opacity: 0;
+  transition: all ease-in-out 0.3s;
+}
+.b--accordion-a__list-item:hover .b--accordion-a__list-item__title__text {
+  background-color: rgba(60, 60, 59, 0);
+  margin-bottom: 0px;
+  padding: 0px;
+}
+.b--accordion-a__list-item:hover .b--accordion-a__list-item__title::after {
+  opacity: 1;
   transition: all ease-in-out 0.3s;
 }
 
-=======
->>>>>>> parent of 2bb011e (landing armeria)
 .b--card-a {
   display: block;
   position: relative;
@@ -885,12 +935,18 @@ img {
 
 .b--card-b {
   position: relative;
+  display: flex;
 }
 .b--card-b__bg-items {
   position: relative;
   margin: 0 auto;
   width: 70%;
   opacity: 1;
+}
+@media (max-width: 960px) {
+  .b--card-b__bg-items {
+    width: 90%;
+  }
 }
 .b--card-b__bg-items__media {
   position: relative;
@@ -903,14 +959,19 @@ img {
   z-index: 1;
 }
 .b--card-b__ft-items {
-  position: absolute;
-  bottom: 10%;
-  width: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   z-index: 3;
+}
+@media (max-width: 960px) {
+  .b--card-b__ft-items {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+  }
 }
 .b--card-b__ft-items__title {
   margin-bottom: 30px;
@@ -949,6 +1010,11 @@ img {
   text-align: right;
   z-index: 2;
 }
+@media (max-width: 960px) {
+  .b--card-c__content {
+    bottom: 1rem;
+  }
+}
 .b--card-c__content__title {
   font-family: "Asap", Arial, Helvetica, sans-serif;
   font-size: 4rem;
@@ -956,6 +1022,8 @@ img {
   line-height: 1.1;
   font-weight: 400;
   color: #fff;
+  display: inline-block;
+  text-align: right;
   background-color: #3c3c3b;
   padding: 0 10px;
   max-width: -webkit-fit-content;
@@ -1127,9 +1195,32 @@ img {
     padding: 4% 0px;
   }
 }
+.b--footer-a__main {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+@media (max-width: 960px) {
+  .b--footer-a__main {
+    margin-bottom: 3rem;
+    display: block;
+    height: auto;
+  }
+}
+.b--footer-a__main__link {
+  display: block;
+}
+.b--footer-a__main__link__media {
+  max-height: 90px;
+}
 .b--footer-a__content {
   text-align: right;
   margin-bottom: 2.5rem;
+}
+@media (max-width: 960px) {
+  .b--footer-a__content {
+    text-align: left;
+  }
 }
 .b--footer-a__content__text {
   font-family: "Asap", Arial, Helvetica, sans-serif;
@@ -1137,27 +1228,43 @@ img {
   font-weight: 400;
   line-height: 1.3;
   color: #fff;
+  display: block;
+  text-decoration: none !important;
 }
 @media (max-width: 960px) {
   .b--footer-a__content__text {
     font-size: 14px;
   }
 }
+.b--footer-a__content__text:hover {
+  color: #a32621;
+}
 .b--footer-a__wrapper {
   display: flex;
   justify-content: flex-end;
 }
+@media (max-width: 960px) {
+  .b--footer-a__wrapper {
+    justify-content: flex-start;
+  }
+}
 .b--footer-a__wrapper__media {
   margin-left: 1.5rem;
+}
+@media (max-width: 960px) {
+  .b--footer-a__wrapper__media {
+    margin-left: 0px;
+    margin-right: 1.5rem;
+  }
 }
 .b--footer-a__wrapper__media__link {
   display: block;
 }
 .b--footer-a__wrapper__media__link__media {
-  max-height: 20px;
+  max-height: 25px;
 }
 @media (max-width: 960px) {
   .b--footer-a__wrapper__media__link__media {
-    max-height: 10px;
+    max-height: 20px;
   }
 }/*# sourceMappingURL=style.css.map */
