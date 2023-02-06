@@ -412,6 +412,8 @@ $measure: 1rem;
         }
         &__card{
             position: relative;
+            display: block;
+            text-decoration: none!important;
             padding: $measure*5 $measure;
             transition: all ease-in-out .3s;
             @media (max-width: 960px){
@@ -421,6 +423,7 @@ $measure: 1rem;
             &__title{
                 position: relative;
                 width: 100%;
+                text-decoration: none!important;
                 &__text{
                     @include font-d();
                     font-weight: 400;
@@ -710,7 +713,7 @@ $measure: 1rem;
         margin-top: $measure;
         &__title{
             @include font-e();
-            font-weight: 400;
+            font-weight: 600;
             color: $color-b;
         }
     }
